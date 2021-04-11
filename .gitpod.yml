@@ -6,6 +6,11 @@ vscode:
     - muhammad-sammy.csharp
     - ionide.ionide-fsharp
     - ms-azuretools.vscode-docker
+    - christian-kohler.path-intellisense
+    - PKief.material-icon-theme
+    - zhuangtongfa.material-theme
+    - eamodio.gitlens
+    - ms-azuretools.vscode-docker
 
 tasks:
   - init: zsh
