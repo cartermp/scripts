@@ -7,6 +7,3 @@ vscode:
     - muhammad-sammy.csharp
     - ionide.ionide-fsharp
     - ms-azuretools.vscode-docker
-
-tasks:
-  - command: zsh
