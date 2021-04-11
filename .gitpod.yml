@@ -7,5 +7,5 @@ vscode:
     - ionide.ionide-fsharp
     - ms-azuretools.vscode-docker
 
-tasks:
-  - init: zsh
+# tasks:
+#   - init: zsh
