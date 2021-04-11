@@ -1,0 +1,9 @@
+  
+image:
+  file: Dockerfile
+
+vscode:
+  extensions:
+    - muhammad-sammy.csharp
+    - ionide.ionide-fsharp
+    - ms-azuretools.vscode-docker
