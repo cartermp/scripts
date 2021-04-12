@@ -11,6 +11,3 @@ vscode:
     - zhuangtongfa.material-theme
     - eamodio.gitlens
     - ms-azuretools.vscode-docker
-
-# tasks:
-#   - init: zsh
