@@ -12,5 +12,5 @@ vscode:
     - eamodio.gitlens
     - ms-azuretools.vscode-docker
 
-tasks:
-  - init: zsh
+# tasks:
+#   - init: zsh
