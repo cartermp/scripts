@@ -1,9 +1,8 @@
 
-#r "nuget: Plotly.NET.Interactive, 2.0.0-beta9"
+#r "nuget: Plotly.NET.Interactive, 2.0.0-preview.18"
 #r "nuget: FSharp.Data"
 
 open Plotly.NET
-open Trace
 open StyleParam
 
 open FSharp.Data
@@ -17,27 +16,27 @@ let yUpper = [ for row in data.Rows -> row.``10 Min Sampled Avg`` + row.``10 Min
 let yLower = [ for row in data.Rows -> row.``10 Min Sampled Avg`` - row.``10 Min Std Dev`` ]
 
 let xyTrace =
-    TraceStyle.Scatter(x, y)
-    |> Trace.initScatter
+    Trace2DStyle.Scatter(X = x, Y = y)
+    |> Trace2D.initScatter
     |> TraceStyle.TraceInfo(Name="Measurement")
-    |> TraceStyle.Line(Color="rgb(31, 119, 180)")
-    |> TraceStyle.Marker(Color="rgb(31, 119, 180)")
+    |> TraceStyle.Line(Color = Color.fromString "rgb(31, 119, 180)")
+    |> TraceStyle.Marker(Color = Color.fromString "rgb(31, 119, 180)")
 
 let xyUpperTrace =
-    TraceStyle.Scatter(x, yUpper, Fillcolor="gb(31, 119, 180)", Fill = Fill.ToNext_y)
-    |> Trace.initScatter
-    |> TraceStyle.TraceInfo(Name="Upper Bound")
-    |> TraceStyle.Line(Color="#444")
-    |> TraceStyle.Marker(Color="#444")
+    Trace2DStyle.Scatter(X = x, Y = yUpper, FillColor=Color.fromString "gb(31, 119, 180)", Fill = Fill.ToNext_y)
+    |> Trace2D.initScatter
+    |> TraceStyle.TraceInfo(Name ="Upper Bound")
+    |> TraceStyle.Line(Color = Color.fromHex "8a8a8a")
+    |> TraceStyle.Marker(Color = Color.fromHex "8a8a8a")
 
 let xyLowerTrace =
-    TraceStyle.Scatter(x,yLower)
-    |> Trace.initScatter
-    |> TraceStyle.TraceInfo(Name="Lower Bound")
-    |> TraceStyle.Line(Color="#444")
-    |> TraceStyle.Marker(Color="#444")
+    Trace2DStyle.Scatter(X = x, Y = yLower)
+    |> Trace2D.initScatter
+    |> TraceStyle.TraceInfo(Name = "Lower Bound")
+    |> TraceStyle.Line(Color = Color.fromHex "8a8a8a")
+    |> TraceStyle.Marker(Color = Color.fromHex "8a8a8a")
 
-let layout = Layout.init(Title="Continuous, variable value error bars", Hovermode = Hovermode.X)
+let layout = Layout.init(Title.init "Continuous, variable value error bars", HoverMode = HoverMode.X)
 
 GenericChart.MultiChart ([xyLowerTrace;xyUpperTrace;xyTrace],layout,Config(),DisplayOptions())
-|> Chart.withY_AxisStyle ("Wind speed (m/s)")
+|> Chart.withYAxisStyle ("Wind speed (m/s)")
